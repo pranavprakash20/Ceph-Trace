@@ -14,6 +14,6 @@ An open-source tool designed to streamline the collection, processing, storage, 
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <a href = "https://github.com/pranavprakash20/Ceph-Trace/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
+  <img src = "https://contrib.rocks/image?repo = pranavprakash20/Ceph-Trace"/>
 </a>
 
