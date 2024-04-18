@@ -13,4 +13,7 @@ An open-source tool designed to streamline the collection, processing, storage, 
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-[![All Contributors](https://img.shields.io/github/all-contributors/pranavprakash20/Ceph-Trace?color=ee8449&style=flat-square)](#contributors)
+<a href = "https://github.com/pranavprakash20/Ceph-Trace/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
+</a>
+
