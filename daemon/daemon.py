@@ -2,10 +2,10 @@
 
 class Daemon:
 
-    def __init(self):
-        pass
+    def __init(self, name):
+        self.name = name
 
-    def create(self, name, service_content):
+    def create(self, service_content):
         pass
 
     def start(self):
