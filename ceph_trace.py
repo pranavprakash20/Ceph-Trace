@@ -1,13 +1,14 @@
 import docopt
 import yaml
-from trace.main_ceph_trace import mainCephTrace
+from trace.tracer import Tracer
 
 # Set doc description
 doc = """
 This script fetches all the options require for ceph trace
     Usage:
         ceph_trace.py (--conf <conf>)
-            (--reporting <reporting>)
+            [--reporting <reporting>]
+            [--end-trace <end-tace>]
 
         ceph_trace.py --help
 
@@ -15,6 +16,7 @@ This script fetches all the options require for ceph trace
         -h --help               Shows the command usage.
         -c --conf <str>         ceph trace config file
         -r --reporting <str>    Reporting type [csv | db]
+        -e --end-trace          End trace
 """
 
 if __name__ == "__main__":
@@ -25,7 +27,10 @@ if __name__ == "__main__":
     conf = args.get("--conf").lower()
     # Load conf file
     conf_data = yaml.safe_load(open(conf,'r'))
-    reporting_type = args.get("--reporting").lower()
-
-    # Run ceph trace
-    mainCephTrace(conf_data,reporting_type).run_ceph_trace()
+    end_trace = args.get("--end-trace")
+    if end_trace:
+        Tracer(conf_data).stop()
+    else:
+        reporting_type = args.get("--reporting").lower()
+        # Run ceph trace
+        Tracer(conf_data,reporting_type).start()

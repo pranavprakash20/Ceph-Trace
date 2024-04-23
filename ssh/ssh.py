@@ -18,6 +18,7 @@ class SSH:
         self.passwd = passwd
         self.client = SSHClient()
         self.client.set_missing_host_key_policy(AutoAddPolicy())
+        self.connect()
 
     def connect(self):
         self.client.connect(self.host,
@@ -27,7 +28,10 @@ class SSH:
     def exec_command(self, cmd):
         _stdin, _stdout, _stderr = self.client.exec_command(command=cmd)
         return _stdout.read().decode()
-
+    
+    def upload(self, src, dst):
+        self.client.open_sftp().put(src, dst)
+        
     def close(self):
         self.client.close()
 
