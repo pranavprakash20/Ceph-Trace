@@ -1,28 +1,32 @@
 nodes:
   - hostname: node1
-    ip: 10.x.x.x
-    root_password: passwd
+    ip: 10.0.211.216
+    user: root
+    password: passwd
     process:
       - mon
       - mgr
       - osd
   - hostname: node2
-    ip: 10.x.x.x
-    root_password: passwd
+    ip: 10.0.208.144
+    user: root
+    password: passwd
     process:
       - mon
       - mgr
       - osd
   - hostname: node3
-    ip: 10.x.x.x
-    root_password: passwd
+    ip: 10.0.210.248
+    user: root
+    password: passwd
     process:
       - mon
       - mgr
       - osd
   - hostname: node4
-    ip: 10.x.x.x
-    root_password: passwd
+    ip: 10.0.208.105
+    user: root
+    password: passwd
     process:
       - mon
       - mgr
