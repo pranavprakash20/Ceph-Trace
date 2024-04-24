@@ -1,9 +1,9 @@
 # Class that handles the creation of perf-mon daemon
 
-class Daemon:
 
-    def __init(self, name):
-        self.name = name
+class Daemon:
+    def __init__(self):
+        self.name = "ceph-trace"
 
     def create(self, service_content, node):
         """
