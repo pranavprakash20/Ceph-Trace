@@ -1,6 +1,7 @@
+from trace.tracer import Tracer
+
 import docopt
 import yaml
-from trace.tracer import Tracer
 
 # Set doc description
 doc = """
@@ -26,11 +27,11 @@ if __name__ == "__main__":
     # Get parameters from args
     conf = args.get("--conf").lower()
     # Load conf file
-    conf_data = yaml.safe_load(open(conf,'r'))
+    conf_data = yaml.safe_load(open(conf, "r"))
     end_trace = args.get("--end-trace")
     if end_trace:
         Tracer(conf_data).stop()
     else:
         reporting_type = args.get("--reporting").lower()
         # Run ceph trace
-        Tracer(conf_data,reporting_type).start()
+        Tracer(conf_data, reporting_type).start()

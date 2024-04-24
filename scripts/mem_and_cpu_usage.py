@@ -5,7 +5,6 @@ from __future__ import print_function
 
 import argparse
 import csv
-import os
 import subprocess
 from time import sleep
 
@@ -45,7 +44,8 @@ def get_memory_and_cpu_consumption(proc_name):
 
 def main():
     """
-    This tool monitors the memory and cpu utilisation of a given resource. The parameters for this tool are
+    This tool monitors the memory and cpu utilisation of a given resource.
+    The parameters for this tool are
     Usage:
         memory_and_cou_logger.py --process_name <Process Name>
                                  --interval <interval in seconds>
@@ -91,25 +91,21 @@ def main():
         csv_writer_obj = csv.writer(file)
         csv_writer_obj.writerow([args.testname, "", "", ""])
         csv_writer_obj.writerow(
-            ["Time stamp", "Process Name", "Process ID", "CPU Usage", "Memory Usage"]
+            ["Time stamp", "Process Name", "Process ID", "CPU Usage",
+             "Memory Usage"]
         )
 
         # Taking memory output for a given
         # number of times
-        stop_flag = "0"
-        counter = 0
-        while "0" in stop_flag:
-            data = get_memory_and_cpu_consumption(process_name)
+        data = get_memory_and_cpu_consumption(process_name)
 
-            # Logging information to csv file
-            for line in data:
-                info = line.split(" ")
-                csv_writer_obj.writerow(
-                    [" ".join(info[:2]), info[2], info[3], info[4], info[5]]
-                )
-                sleep(interval)
-            counter += 1
-            stop_flag = str(os.popen("cat /home/status").read())
+        # Logging information to csv file
+        for line in data:
+            info = line.split(" ")
+            csv_writer_obj.writerow(
+                [" ".join(info[:2]), info[2], info[3], info[4], info[5]]
+            )
+            sleep(interval)
 
 
 if __name__ == "__main__":

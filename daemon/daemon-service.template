@@ -1,0 +1,11 @@
+[Unit]
+Description="Gather cpu usage and memory usage"
+
+
+[Service]
+Restart=always
+WorkingDirectory={script_directory}
+ExecStart=/usr/bin/python3 {script_run_cmd} {arguments}
+
+[Install]
+WantedBy=multi-user target
